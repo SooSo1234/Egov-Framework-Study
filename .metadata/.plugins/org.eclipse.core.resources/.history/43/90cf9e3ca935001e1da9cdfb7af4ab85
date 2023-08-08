@@ -1,0 +1,9 @@
+package egovframework.example.sample.service.impl;
+
+import org.egovframe.rte.psl.dataaccess.EgovAbstractDAO;
+import org.springframework.stereotype.Repository;
+
+@Repository("deptDAO")
+public class DeptDAO extends EgovAbstractDAO {
+
+}

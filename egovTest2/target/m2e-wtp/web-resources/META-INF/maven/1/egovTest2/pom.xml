@@ -105,6 +105,23 @@
   	 		<artifactId>sqlite-jdbc</artifactId>
     		<version>3.42.0.0</version>
 		</dependency>
+		
+		
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
+		<dependency>
+      		<groupId>com.microsoft.sqlserver</groupId>
+      		<artifactId>mssql-jdbc</artifactId>
+      		<version>7.4.1.jre8</version>
+		</dependency>
+
+
+
         <!-- mysql이나 oracle DB 사용시 아래 설정 추가  
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>

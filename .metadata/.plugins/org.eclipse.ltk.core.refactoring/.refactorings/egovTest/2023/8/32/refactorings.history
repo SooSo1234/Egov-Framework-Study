@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;deptWrite.jsp&apos; to &apos;dept&apos;&#x0D;&#x0A;- Original project: &apos;egovTest&apos;&#x0D;&#x0A;- Destination element: &apos;dept&apos;&#x0D;&#x0A;- Original element: &apos;deptWrite.jsp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="src/main/webapp/dept/deptWrite.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1691470188516" target="/egovTest2/src/main/webapp/dept" units="0" version="1.0"/>
+</session>
