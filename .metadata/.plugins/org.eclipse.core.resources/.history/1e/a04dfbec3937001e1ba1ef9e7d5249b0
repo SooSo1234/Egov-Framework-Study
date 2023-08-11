@@ -1,0 +1,6 @@
+package egovframework.example.sample.service.impl;
+
+@Service(name="codeService")
+public class CodeServiceImple {
+
+}

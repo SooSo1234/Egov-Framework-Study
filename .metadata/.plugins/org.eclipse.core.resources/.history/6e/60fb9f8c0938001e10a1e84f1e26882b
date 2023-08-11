@@ -1,0 +1,8 @@
+package main.service;
+
+import org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+public interface BoardService {
+
+	public String insertBoard(BoardVO vo) throws Exception;
+}

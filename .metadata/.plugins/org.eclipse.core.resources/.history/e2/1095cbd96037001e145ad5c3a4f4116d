@@ -1,0 +1,21 @@
+package main.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class BoardController {
+
+	@RequestMapping(value="/boardWrite.do")
+	public String boardWrite() {
+		
+		return "board/boardWrite";
+	}
+	
+//	@RequestMapping(value="/boardWriteSave.do")
+//	public String boardWriteSave() {
+//		
+//		return "board/boardWrite";
+//	}
+	
+}

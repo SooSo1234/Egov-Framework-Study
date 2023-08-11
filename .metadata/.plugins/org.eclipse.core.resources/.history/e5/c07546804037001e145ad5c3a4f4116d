@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="CodeSpace">
+
+	<typeAlias  alias="egovMap" type="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="codeVO" type="egovframework.example.sample.service.CodeVO"/>
+
+	<insert id="codeDAO.insertCodes">
+		insert into dept(deptno,dname,loc) values(#deptno#,#dname#,#loc#)
+	</insert>
+
+	<select id="deptDAO.selectDeptList" resultClass="egovMap">
+		select deptno, dname, loc from dept
+	</select>
+
+	<select id="deptDAO.selectDeptDetail" resultClass="deptVO">
+		select deptno, dname, loc from dept where deptno=#deptno#
+	</select>
+	
+	<update id="deptDAO.updateDeptModify">
+		update dept set dname=#dname#, loc=#loc# where deptno=#deptno#
+	</update>
+
+	<delete id="deptDAO.deleteDept">
+		delete from dept where deptno=#deptno#
+	</delete>
+
+</sqlMap>

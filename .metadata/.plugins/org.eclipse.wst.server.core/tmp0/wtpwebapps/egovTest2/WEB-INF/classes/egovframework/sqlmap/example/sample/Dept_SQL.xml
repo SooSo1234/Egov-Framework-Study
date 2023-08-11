@@ -14,11 +14,16 @@
 		select deptno, dname, loc from dept
 	</select>
 
-
-
-
-	<select id="deptDAO.select">
-		select drivername from parkingmanager where parkingspot = '1'
+	<select id="deptDAO.selectDeptDetail" resultClass="deptVO">
+		select deptno, dname, loc from dept where deptno=#deptno#
 	</select>
+	
+	<update id="deptDAO.updateDeptModify">
+		update dept set dname=#dname#, loc=#loc# where deptno=#deptno#
+	</update>
+
+	<delete id="deptDAO.deleteDept">
+		delete from dept where deptno=#deptno#
+	</delete>
 
 </sqlMap>

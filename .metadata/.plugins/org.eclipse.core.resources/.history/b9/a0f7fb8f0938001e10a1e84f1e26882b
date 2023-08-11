@@ -1,0 +1,17 @@
+package main.service.impl;
+
+import org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import org.springframework.stereotype.Service;
+
+import main.service.BoardService;
+import main.service.BoardVO;
+
+@Service("boardService")
+public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardService{
+
+	@Override
+	public String insertBoard(BoardVO vo) throws Exception {
+		return null;
+	}
+
+}

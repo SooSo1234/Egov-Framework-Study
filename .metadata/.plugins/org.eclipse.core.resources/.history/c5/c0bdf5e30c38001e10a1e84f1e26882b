@@ -1,0 +1,38 @@
+package main.web;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import main.service.BoardService;
+import main.service.BoardVO;
+
+@Controller
+public class BoardController {
+	
+	@Resource(name="boardService")
+	private BoardService boardService;
+
+	@RequestMapping(value="/boardWrite.do")
+	public String boardWrite() {
+		
+		return "board/boardWrite";
+	}
+	
+	@RequestMapping(value="/boardWriteSave.do")
+	public String boardWriteSave(BoardVO vo) throws Exception {
+		
+		String result = boardService.insertBoard(vo);
+		String message = "";
+		
+		if(result == "") {
+			System.out.println("저장성공");
+		} else {
+			System.out.println("저장실패");
+		}
+		
+		return "board/boardWrite";
+	}
+	
+}

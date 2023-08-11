@@ -1,0 +1,12 @@
+package main.service;
+
+public class BoardVO {
+
+	private int unq;
+	private String title;
+	private String pass;
+	public String name;
+	public String content;
+	public int hits;
+	public String rdate;
+}

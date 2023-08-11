@@ -6,6 +6,7 @@ public interface DeptService {
 
 	public String insertDept(DeptVO vo) throws Exception;
 	public List<?> selectDeptList(DeptVO vo) throws Exception;
-	
-	public String selectDept() throws Exception;
+	public DeptVO selectDeptDetail(String deptno) throws Exception;
+	public int updateDeptModify(DeptVO vo) throws Exception;
+	public int deleteDept(String deptno) throws Exception;
 }

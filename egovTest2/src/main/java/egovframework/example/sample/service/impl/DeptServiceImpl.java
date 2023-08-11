@@ -18,29 +18,30 @@ public class DeptServiceImpl extends EgovAbstractServiceImpl implements DeptServ
 	
 	@Override
 	public String insertDept(DeptVO vo) throws Exception {
-		String result = deptDAO.insertDept(vo);
+
 		
-		if(result == null) {
-			System.out.println("저장성공");
-		} else {
-			System.out.println("저장실패");
-			System.out.println(result);
-		}
-		
-		return "";
-	}
-	
-	@Override
-	public String selectDept() throws Exception {
-		String result = deptDAO.selecttest();
-		System.out.println(result);
-		return null;
+		return deptDAO.insertDept(vo);
 	}
 
 	@Override
 	public List<?> selectDeptList(DeptVO vo) throws Exception {
 		
 		return deptDAO.selectDeptList(vo);
+	}
+
+	@Override
+	public DeptVO selectDeptDetail(String deptno) throws Exception {
+		return deptDAO.selectDeptDetail(deptno);
+	}
+
+	@Override
+	public int updateDeptModify(DeptVO vo) throws Exception {
+		return deptDAO.updateDeptModify(vo);
+	}
+
+	@Override
+	public int deleteDept(String deptno) throws Exception {
+		return deptDAO.deleteDept(deptno);
 	}
 
 }
