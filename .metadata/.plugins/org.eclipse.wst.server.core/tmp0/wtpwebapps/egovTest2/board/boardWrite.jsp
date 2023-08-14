@@ -7,7 +7,7 @@
 <title>게시판 등록 화면</title>
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="/egoveTest2/script/jquery-ui.js"></script>
+<script src="script/jquery-ui.js"></script>
 
 </head>
 

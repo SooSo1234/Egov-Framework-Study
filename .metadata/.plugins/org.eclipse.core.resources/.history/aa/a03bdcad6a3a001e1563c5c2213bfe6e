@@ -1,0 +1,21 @@
+package main.web;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import main.service.MemberService;
+
+@Controller
+public class MemberController {
+
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
+	@RequestMapping("/memberWrite.do")
+	public String memberWrite(){
+		
+		return "member/memberWrite";
+	}
+}
