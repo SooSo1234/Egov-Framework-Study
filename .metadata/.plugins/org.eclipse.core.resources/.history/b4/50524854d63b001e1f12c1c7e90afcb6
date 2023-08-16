@@ -1,0 +1,12 @@
+package main.service.impl;
+
+import org.egovframe.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import org.springframework.stereotype.Service;
+
+import main.service.MemberService;
+
+@Service(name="memverService")
+public class MemberServiceImpl  extends EgovAbstractServiceImpl implements MemberService{
+	
+
+}
