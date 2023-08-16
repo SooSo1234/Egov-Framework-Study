@@ -47,8 +47,54 @@
 		margin-bottom:5px;
 	}
 </style>
-
+	<style>
+		body{
+			font-size:9pt;
+			font-color:#333333;
+			font-family:맑은 고딕;
+			
+		}
+		a{
+			text-decoration:none;
+			
+		}
+		table{
+			width:600px;
+			border-collapse:collapse;
+			
+		}
+		th,td{
+			border:1px solid #cccccc;
+			padding: 3px;
+			line-height:2;
+			
+		}
+		caption{
+			font-size:15pt;
+			font-weight:bold;
+			margin-top:10px;
+			padding-bottom:5px;
+			
+		}
+		
+		.div_button{
+			width:600px;
+			text-align:center;
+			margin:0 auto;
+			margin-top:5px;
+			
+		}
+		body{
+			margin:0 auto;
+			width: 800x;
+		}
+		table{
+			margin:0 auto;
+			margin-top:10px;
+		}
+	</style>
 <body>
+<%@ include file="../include/topmenu.jsp" %>
 	<div class="div1">일반게시판 목록</div>
 	<div style="text-align:left;">Total : ${total }</div>
 	

@@ -65,6 +65,39 @@
 			
 			$("#btn_submit").click(()=>{
 				
+				var userid = $.trim($("#userid").val());
+				var pass = $.trim($("#pass").val());
+				
+				if(userid == "") {
+					alert("아이디를 입력해주세요.");
+					$("#userid").focus();
+					return false;
+				}
+				if(pass == "") {
+					alert("암호를 입력해주세요.");
+					$("#pass").focus();
+					return false;
+				}
+				
+				$.ajax({
+					
+					type:"POST",
+					data:"userid="+userid+"&pass="+pass,
+					url:"loginWriteSub.do",
+					dataType:"text",
+					
+					success: function(result) {
+						if(result == "ok"){
+							alert(userid+"님 로그인 되었습니다.");
+							location = "boardList.do";
+						} else {
+							alert("로그인 정보를 다시 확인해주세요.");
+						}
+					},
+					error: function() {
+						alert("오류발생");
+					}
+				});
 			});
 			
 			
@@ -72,7 +105,10 @@
 	</script>
 <body>
 
+<%@ include file="../include/topmenu.jsp" %>
+
 <form name="frm" id="frm">
+
 	<table>
 		<caption>로그인</caption>
 		<tr>

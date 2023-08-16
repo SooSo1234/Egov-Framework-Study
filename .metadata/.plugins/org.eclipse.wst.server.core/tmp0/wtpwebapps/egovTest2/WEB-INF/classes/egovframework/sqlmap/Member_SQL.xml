@@ -7,7 +7,7 @@
 	<typeAlias  alias="memberVO" type="main.service.memberVO"/>
 
 	<insert id="memberDAO.insertMember">
-		INSERT INTO MEMBER( userid,
+		INSERT INTO member( userid,
 							pass,
 							name,
 							gender,
@@ -28,8 +28,11 @@
 	</insert>
 
 	<select id="memberDAO.selectMemberIdCheck" resultClass="int">
-		SELECT COUNT(*) cnt FROM MEMBER WHERE userid=#userid#
+		SELECT COUNT(*) cnt FROM member WHERE userid=#userid#
 	</select>
 
+	<select id="memberDAO.selectMemberCount" resultClass="int">
+		SELECT COUNT(*) cnt FROM member WHERE userid=#userid# and pass=#pass#
+	</select>
 
 </sqlMap>

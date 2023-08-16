@@ -1,6 +1,7 @@
 package main.web;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,8 +60,32 @@ public class MemberController {
 		return "member/post1";
 	}
 	
-
+	@RequestMapping("/loginWrite.do")
+	public String loginWrite() {
+		
+		return "member/loginWrite";
+	}
 	
+	@RequestMapping("loginWriteSub.do")
+	@ResponseBody
+	public String loginWriteSub(MemberVO vo, HttpSession session) throws Exception{
+		
+		String message = "";
+		int result = memberService.selectMemberCount(vo);
+		if(result==1) {
+			session.setAttribute("SessionUserID", vo.getUserid());
+			message="ok";
+		}
+		
+		return message;
+	}
 	
+	@RequestMapping("logoutWrite.do")
+	public String logoutWrite(HttpSession session) {
+		
+		session.removeAttribute("SessionUserID");
+		
+		return "member/loginWrite";
+	}
 	
 }

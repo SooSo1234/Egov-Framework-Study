@@ -24,4 +24,9 @@ public class MemberServiceImpl  extends EgovAbstractServiceImpl implements Membe
 		return memberDAO.selectMemberIdCheck(userid);
 	}
 
+	@Override
+	public int selectMemberCount(MemberVO vo) throws Exception {
+		return memberDAO.selectMemberCount(vo);
+	}
+
 }

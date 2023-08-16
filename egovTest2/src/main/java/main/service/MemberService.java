@@ -8,4 +8,7 @@ public interface MemberService {
 	
 	//중복아이디 체크
 	public int selectMemberIdCheck(String userid) throws Exception;
+	
+	//로그인 데이터 확인
+	public int selectMemberCount(MemberVO vo) throws Exception;
 }
