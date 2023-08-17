@@ -3,6 +3,7 @@ package main.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,12 +12,54 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import main.service.BoardService;
 import main.service.BoardVO;
+import main.service.MemberService;
 
 @Controller
 public class BoardController {
 	
+	
 	@Resource(name="boardService")
 	private BoardService boardService;
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
+	
+	@RequestMapping("/main.do")
+	public String mainpage(BoardVO vo, ModelMap model) throws Exception {
+		int unit = 5;
+		
+		//총 데이터 개수
+		int total = boardService.selectBoardTotal(vo);
+		
+		int totalPage = (int) Math.ceil((double)total/unit);
+
+		int viewPage = vo.getViewPage();
+		
+		if(viewPage > totalPage || viewPage<1) {
+			viewPage = 1;
+		}
+		
+		int startIndex = (viewPage-1)*unit+1; 
+		int endIndex= (viewPage*unit);
+		
+		int startRowNo = total-((viewPage-1)*unit);
+		
+		vo.setStartIndex(startIndex);
+		vo.setEndIndex(endIndex);
+		
+		List<?> recList = boardService.selectBoardList(vo);
+		List<?> hotList = boardService.selectHotBoardList(vo);
+		
+		model.addAttribute("total", total);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("recList", recList);
+		model.addAttribute("hotList", hotList);
+		model.addAttribute("rowNumber", startRowNo);
+		model.addAttribute("vo", vo);
+		return "main";
+	}
+	
 
 	@RequestMapping(value="/boardWrite.do")
 	public String boardWrite() {
@@ -27,6 +70,7 @@ public class BoardController {
 	@RequestMapping(value="/boardWriteSave.do")
 	@ResponseBody
 	public String boardWriteSave(BoardVO vo) throws Exception {
+		
 		
 		String result = boardService.insertBoard(vo);
 		String message = "";
@@ -68,6 +112,7 @@ public class BoardController {
 		vo.setEndIndex(endIndex);
 		
 		List<?> list = boardService.selectBoardList(vo);
+		
 		
 		model.addAttribute("total", total);
 		model.addAttribute("totalPage", totalPage);

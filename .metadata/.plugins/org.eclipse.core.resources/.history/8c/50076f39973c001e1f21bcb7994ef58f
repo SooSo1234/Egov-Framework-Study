@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+body{
+	font-size:9pt;
+	font-color:#333333;
+	font-family:맑은 고딕;
+	margin:0 auto;
+	max-width: 600x;
+	min-height: 100vh;
+	position:static;
+}
+a{
+	text-decoration:none;
+	
+}
+table{
+	width:600px;
+	border-collapse:collapse;
+	margin:0 auto;
+	margin-top:10px;
+		
+}
+th,td{
+	border:1px solid #cccccc;
+	padding: 3px;
+	line-height:2;
+	
+}
+caption{
+	font-size:15pt;
+	font-weight:bold;
+	margin-top:10px;
+	padding-bottom:5px;
+	
+}
+div{
+	position: relative;
+}
+
+.div_button{
+	width:600px;
+	text-align:center;
+	margin:0 auto;
+	margin-top:5px;
+	
+}
+.div1{
+	width:600px;
+	text-align:center;
+	font-size:20pt;
+	margin:0 auto;
+}
+.input1{
+	width:98%;
+}
+.textarea{
+	width:98%;
+	height:70px;
+}
+.search{
+	width:600px;
+	text-align:right;
+	margin:0 auto;
+	margin-bottom:5px;
+	
+}

@@ -1,5 +1,0 @@
-DbType=mssql
-jdbc.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
-jdbc.url=[mssql \uc11c\ubc84]
-jdbc.username=[\uc544\uc774\ub514]
-jdbc.password=[\ube44\ubc00\ubc88\ud638]

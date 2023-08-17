@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -88,4 +89,66 @@ public class MemberController {
 		return "member/loginWrite";
 	}
 	
+	@RequestMapping("memberModify.do")
+	public String memberModify(HttpSession session, ModelMap model) throws Exception{
+		
+		String userid = (String) session.getAttribute("SessionUserID");
+		if(userid==null) {
+			return "member/loginWrite";
+		}
+		MemberVO vo = memberService.selectMember(userid);
+		
+		model.addAttribute("memberVO", vo);
+		
+		return "member/memberModify";
+	}
+	
+	@RequestMapping("memberModifySave.do")
+	@ResponseBody
+	public String memberModifySave(MemberVO vo) throws Exception{
+		
+		String message="";
+		int result = memberService.updateMember(vo);
+		
+		if(result==1) {
+			message="ok";
+		}
+		
+		
+		return message;
+	}
+	
+	@RequestMapping("/pass1.do")
+	public String pass1() {
+		return "member/pass1";
+	}
+	
+	@RequestMapping("passUpdate.do")
+	@ResponseBody
+	public String passUpdate(String oldpass, String pass, HttpSession session) throws Exception{
+		
+		String message="";
+		String userid=(String) session.getAttribute("SessionUserID");
+		
+		MemberVO vo = new MemberVO();
+		vo.setUserid(userid);
+		vo.setPass(oldpass);
+		
+		int check = memberService.selectMemberCount(vo);
+		if(check==1) {
+			vo.setPass(pass);
+			int result = memberService.updatePass(vo);
+			if(result==1) {
+				message="success";
+			} else {
+				message="false";
+			}
+		} else {
+			message="notcorrect";
+		}
+		
+		
+		return message;
+	}
+
 }

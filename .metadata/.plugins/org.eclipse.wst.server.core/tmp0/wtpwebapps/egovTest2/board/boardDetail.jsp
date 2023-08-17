@@ -19,34 +19,8 @@
 </head>
 
 
-<style >
-	
-	body{
-		fond-size:9pt;
-	}
-	button{
-		font-size:9pt;
-	}
-	table{
-		width:600px;
-		border-collapse:collapse;
-	}
-	th, td{
-		border:1px solid #cccccc;
-		padding: 3px;
-	}
-	td{
-		padding-left:10px;
-	}
-	.input1{
-		width:98%;
-	}
-	.textarea{
-		width:98%;
-		height:70px;
-	}
-	
-</style>
+<link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
+
 <script>
 
 
@@ -54,6 +28,7 @@
 
 
 <body>
+<%@ include file="../include/topmenu.jsp" %>
 <form id="frm">
 	<table>
 		<caption>게시판 상세</caption>

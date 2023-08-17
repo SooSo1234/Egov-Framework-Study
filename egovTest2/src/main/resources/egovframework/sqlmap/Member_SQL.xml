@@ -4,7 +4,7 @@
 <sqlMap namespace="MemberSpace">
 
 	<typeAlias  alias="egovMap" type="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="memberVO" type="main.service.memberVO"/>
+	<typeAlias  alias="memberVO" type="main.service.MemberVO"/>
 
 	<insert id="memberDAO.insertMember">
 		INSERT INTO member( userid,
@@ -34,5 +34,31 @@
 	<select id="memberDAO.selectMemberCount" resultClass="int">
 		SELECT COUNT(*) cnt FROM member WHERE userid=#userid# and pass=#pass#
 	</select>
+
+	<select id="memberDAO.selectMember" resultClass="memberVO">
+		SELECT userid,
+				pass,
+				name,
+				gender,
+				birth,
+				phone,
+				zipcode,
+				address,
+				address_detail FROM member WHERE userid=#userid#
+	</select>
+
+	<update id="memberDAO.updateMember">
+		UPDATE member SET name=#name#,
+						  gender=#gender#,
+						  birth=#birth#,
+						  phone=#phone#,
+						  zipcode=#zipcode#,
+						  address=#address#,
+						  address_detail=#address_detail# WHERE userid=#userid#
+	</update>
+
+	<update id="memberDAO.updatePass">
+		update member set pass=#pass# where userid=#userid# 
+	</update>
 
 </sqlMap>

@@ -10,8 +10,8 @@
 <meta charset="UTF-8">
 <title>회원등록</title>
 </head>
-
-	<style>
+<link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
+<!-- 	<style>
 		body{
 			font-size:9pt;
 			font-color:#333333;
@@ -55,7 +55,7 @@
 		table{
 			margin:0 auto;
 			margin-top:10px;
-		}
+		} -->
 	</style>
 	
   	<!-- 달력 (https://jqueryui.com/datepicker/)-->
@@ -77,7 +77,11 @@
 	
 	
 	<!-- "생년월일" 입력창 선택시 달력 출력 -->
-	$( "#birth" ).datepicker();
+	$( "#birth" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true
+	});
+	$( "#birth" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 	
 	<!-- "우편번호 찾기" 단추 누르면 팝업 레이어 열림 -->
 	$("#btn_zipcode").click(()=>{
@@ -124,8 +128,7 @@
     		$("#userid").focus();
     		return false;
     	}
-    	var birth = $("#birth").val().split("/");
-    	$("#birth").val(birth[2]+"/"+birth[0]+"/"+birth[1]);
+
     	
     	$("#userid").val(userid);
     	$("#pass").val(pass);

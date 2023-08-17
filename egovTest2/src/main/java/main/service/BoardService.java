@@ -10,6 +10,9 @@ public interface BoardService {
 	//일반 게시판 화면 목록
 	public List<?> selectBoardList(BoardVO vo) throws Exception;
 	
+	//일반 게시판 인기글 목록
+	public List<?> selectHotBoardList(BoardVO vo) throws Exception;
+	
 	//Total 개수 얻기
 	public int selectBoardTotal(BoardVO vo) throws Exception;
 	
@@ -27,4 +30,6 @@ public interface BoardService {
 	
 	//삭제
 	public int deleteBoard(BoardVO vo) throws Exception;
+	
+	 
 }

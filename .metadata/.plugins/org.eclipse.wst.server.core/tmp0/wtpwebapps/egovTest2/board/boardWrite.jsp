@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"      uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,36 +11,12 @@
 <title>게시판 등록 화면</title>
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="script/jquery-ui.js"></script>
 
 </head>
 
+<link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
 
-<style >
-	
-	body{
-		fond-size:9pt;
-	}
-	button{
-		font-size:9pt;
-	}
-	table{
-		width:600px;
-		border-collapse:collapse;
-	}
-	th, td{
-		border:1px solid #cccccc;
-		padding: 3px;
-	}
-	.input1{
-		width:98%;
-	}
-	.textarea{
-		width:98%;
-		height:70px;
-	}
-	
-</style>
+
 <script>
 
 	$(function(){
@@ -109,6 +89,7 @@
 
 
 <body>
+<%@ include file="../include/topmenu.jsp" %>
 <form id="frm">
 	<table>
 		<caption>게시판 등록</caption>
@@ -118,7 +99,7 @@
 		</tr>
 		<tr>
 			<th><label for="pass">암호</label></th>
-			<td><input type="password" name="pass" id="pass"></td>
+			<td><input type="password" name="pass" id="pass" ></td>
 		</tr>
 		<tr>
 			<th><label for="name">글쓴이</label></th>

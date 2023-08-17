@@ -12,94 +12,18 @@
 <meta charset="UTF-8">
 <title>게시판 목록</title>
 </head>
+<link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
 
-<style >
-	
-	body{
-		fond-size:9pt;
-	}
-	button{
-		font-size:9pt;
-	}
-	table{
-		width:600px;
-		border-collapse:collapse;
-	}
-	th, td{
-		border:1px solid #cccccc;
-		padding: 3px;
-	}
-	.input1{
-		width:98%;
-	}
-	.textarea{
-		width:98%;
-		height:70px;
-	}
-	.div1{
-		width:600px;
-		text-align:center;
-		font-size:20pt;
-	}
-	.search{
-		width:600px;
-		text-align:right;
-		margin-bottom:5px;
-	}
-</style>
-	<style>
-		body{
-			font-size:9pt;
-			font-color:#333333;
-			font-family:맑은 고딕;
-			
-		}
-		a{
-			text-decoration:none;
-			
-		}
-		table{
-			width:600px;
-			border-collapse:collapse;
-			
-		}
-		th,td{
-			border:1px solid #cccccc;
-			padding: 3px;
-			line-height:2;
-			
-		}
-		caption{
-			font-size:15pt;
-			font-weight:bold;
-			margin-top:10px;
-			padding-bottom:5px;
-			
-		}
-		
-		.div_button{
-			width:600px;
-			text-align:center;
-			margin:0 auto;
-			margin-top:5px;
-			
-		}
-		body{
-			margin:0 auto;
-			width: 800x;
-		}
-		table{
-			margin:0 auto;
-			margin-top:10px;
-		}
-	</style>
+
 <body>
 <%@ include file="../include/topmenu.jsp" %>
+
+
 	<div class="div1">일반게시판 목록</div>
-	<div style="text-align:left;">Total : ${total }</div>
 	
 	<form id="searchFrm" method="post" action="boardList.do">
 		<div class="search">
+			<div style="position:absolute; padding:10px;">Total : ${total }</div>
 			<select name="searchGubun" id="searchGubun">
 				<option value="title" <c:if test="${vo.searchGubun=='title' }"> selected</c:if>>제목</option>
 				<option value="name" <c:if test="${vo.searchGubun=='name' }"> selected</c:if>>글쓴이</option>
@@ -133,15 +57,15 @@
 	
 </table>
 
-<div style="width:600px; margin-top:5px; text-align:center; ">
+<div class="center">
 	
 	<c:forEach var="i" begin="1" end="${totalPage }">
-		<a href="boardList.do?viewPage=${i }">${i }</a> 
+		<a href="boardList.do?viewPage=${i }">${i }<c:if test="${i!=totalPage }"> | </c:if></a> 
 	</c:forEach>
 
 </div>
 
-<div style="width:600px; margin-top:5px; text-align:right; ">
+<div class="right">
 	<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 </div>
 

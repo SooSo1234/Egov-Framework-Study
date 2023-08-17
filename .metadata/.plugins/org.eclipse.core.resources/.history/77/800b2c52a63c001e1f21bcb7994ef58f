@@ -1,0 +1,100 @@
+package main.web;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import main.service.MemberService;
+import main.service.MemberVO;
+
+@Controller
+public class MemberController {
+
+	@Resource(name="memberService")
+	private MemberService memberService;
+	
+	/*
+	 * @Resource(name="memberService") private MemberService memberService;
+	 */
+	@RequestMapping("/memberWrite.do")
+	public String memberWrite(){
+		
+		return "member/memberWrite";
+	}
+	
+	@RequestMapping("/memberWriteSave.do")
+	@ResponseBody
+	public String memberWriteSave(MemberVO vo) throws Exception{
+		
+		String message="";
+		String result = memberService.insertMember(vo);
+		
+		if(result == null) {
+			System.out.println("저장성공");
+			message="ok";
+		} else {
+			System.out.println("저장실패");
+		}
+		
+		return message;
+	}
+	
+	@RequestMapping("/idcheck.do")
+	@ResponseBody
+	public String selectMemberIdCheck(String userid) throws Exception{
+		
+		String message="";
+		int result = memberService.selectMemberIdCheck(userid);
+		if(result == 0) {
+			message="ok";
+		}
+		
+		return message;
+	}
+	
+	@RequestMapping("/post1.do")
+	public String post1() {
+		return "member/post1";
+	}
+	
+	@RequestMapping("/loginWrite.do")
+	public String loginWrite() {
+		
+		return "member/loginWrite";
+	}
+	
+	@RequestMapping("loginWriteSub.do")
+	@ResponseBody
+	public String loginWriteSub(MemberVO vo, HttpSession session) throws Exception{
+		
+		String message = "";
+		int result = memberService.selectMemberCount(vo);
+		if(result==1) {
+			session.setAttribute("SessionUserID", vo.getUserid());
+			message="ok";
+		}
+		
+		return message;
+	}
+	
+	@RequestMapping("logoutWrite.do")
+	public String logoutWrite(HttpSession session) {
+		
+		session.removeAttribute("SessionUserID");
+		
+		return "member/loginWrite";
+	}
+	
+	@RequestMapping("memberModify.do")
+	public String memberModify(HttpSession session) throws Exception{
+		
+		String user = (String) session.getAttribute("");
+		
+		
+		return "member/memberModify";
+	}
+	
+}

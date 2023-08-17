@@ -24,6 +24,21 @@
 		where rn >= #startIndex# and rn <![CDATA[<=]]>#endIndex#
 		
 	</select>
+	
+	<select id="boardDAO.selectHotBoardList" resultClass="egovMap">
+
+		select b.* from (
+			select row_number() over(order by a.hits desc) as rn, a.* from (
+				select unq,title,name,hits,date_format(rdate, '%Y-%m-%d') rdate from board 
+					<isNotNull property="searchGubun">
+						<isNotNull property="searchText">
+						 where $searchGubun$ like '%$searchText$%'
+						</isNotNull>
+					</isNotNull>
+				order by hits desc) a) b 
+		where rn >= #startIndex# and rn <![CDATA[<=]]>#endIndex#
+		
+	</select>
 
 	<select id="boardDAO.selectBoardTotal" resultClass="int">
 		select count(*) total from board 
