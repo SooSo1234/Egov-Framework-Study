@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	<groupId>1</groupId>
-	<artifactId>egovTest</artifactId>
+	<artifactId>egovTest2</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>egoveTest</name>
+	<name>egovTest2</name>
 	<url>http://www.egovframe.go.kr</url>
 
 	<licenses>
@@ -42,8 +42,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		
-
     </repositories>
 
 	<dependencies>
@@ -101,7 +99,38 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.5.2</version>
 		</dependency>
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+		<dependency>
+    		<groupId>org.xerial</groupId>
+  	 		<artifactId>sqlite-jdbc</artifactId>
+    		<version>3.42.0.0</version>
+		</dependency>
 		
+		
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
+		<dependency>
+      		<groupId>com.microsoft.sqlserver</groupId>
+      		<artifactId>mssql-jdbc</artifactId>
+      		<version>7.4.1.jre8</version>
+		</dependency>
+
+        <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version>
+        </dependency>
 
         <!-- mysql이나 oracle DB 사용시 아래 설정 추가  
         <dependency>

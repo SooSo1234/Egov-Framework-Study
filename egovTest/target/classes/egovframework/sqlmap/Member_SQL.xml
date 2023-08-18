@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MemberSpace">
+
+	<typeAlias  alias="egovMap" type="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="memberVO" type="main.service.MemberVO"/>
+
+	<insert id="memberDAO.insertMember">
+		INSERT INTO member( userid,
+							pass,
+							name,
+							gender,
+							birth,
+							phone,
+							zipcode,
+							address,
+							address_detail ) 
+					VALUES( #userid#,
+							#pass#,
+							#name#,
+							#gender#,
+							date_format(#birth#,"%Y-%m-%d"),
+							#phone#,
+							#zipcode#,
+							#address#,
+							#address_detail# )
+	</insert>
+
+	<select id="memberDAO.selectMemberIdCheck" resultClass="int">
+		SELECT COUNT(*) cnt FROM member WHERE userid=#userid#
+	</select>
+
+	<select id="memberDAO.selectMemberCount" resultClass="int">
+		SELECT COUNT(*) cnt FROM member WHERE userid=#userid# and pass=#pass#
+	</select>
+
+	<select id="memberDAO.selectMember" resultClass="memberVO">
+		SELECT userid,
+				pass,
+				name,
+				gender,
+				birth,
+				phone,
+				zipcode,
+				address,
+				address_detail FROM member WHERE userid=#userid#
+	</select>
+
+	<update id="memberDAO.updateMember">
+		UPDATE member SET name=#name#,
+						  gender=#gender#,
+						  birth=#birth#,
+						  phone=#phone#,
+						  zipcode=#zipcode#,
+						  address=#address#,
+						  address_detail=#address_detail# WHERE userid=#userid#
+	</update>
+
+	<update id="memberDAO.updatePass">
+		update member set pass=#pass# where userid=#userid# 
+	</update>
+
+</sqlMap>

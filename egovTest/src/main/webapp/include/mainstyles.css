@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+body{
+	font-size:9pt;
+	font-color:#333333;
+	font-family:맑은 고딕;
+	margin:0 auto;
+	max-width: 600px;
+	min-height: 100vh;
+	position:static;
+}
+a{
+	text-decoration:none;
+	
+}
+table{
+	width:600px;
+	border-collapse:collapse;
+	margin:0 auto;
+	margin-top:10px;
+		
+}
+th,td{
+	border:1px solid #cccccc;
+	padding: 3px;
+	line-height:2;
+	
+}
+caption{
+	font-size:15pt;
+	font-weight:bold;
+	margin-top:10px;
+	padding-bottom:5px;
+	
+}
+
+.div_button{
+	width:600px;
+	text-align:center;
+	margin:0 auto;
+	margin-top:5px;
+	
+	
+}
+.div1{
+	width:600px;
+	text-align:center;
+	margin:0 auto;
+	font-size:15pt;
+	font-weight:bold;
+	margin-top:20px;
+	padding-bottom:5px;
+}
+.input1{
+	width:98%;
+}
+.textarea{
+	width:98%;
+	height:70px;
+}
+.search{
+	width:600px;
+	text-align:right;
+	margin:0 auto;
+	margin-bottom:5px;
+	
+}
+.total{
+	width:600px;
+	text-align:left;
+	margin:0 auto;
+	
+}
+.center{
+	font-size:12pt;
+	width:600px;
+	margin:0 auto;
+	text-align: center;
+	padding-top: 10px;
+}
+.right{
+	width:600px;
+	margin:0 auto;
+	text-align: right;
+}
+/* main.jsp CSS */
+	.bottom_table{
+		border:0px solid white;
+	}
+	.login_table{
+		width:180px;
+	}
+	.login_div{
+		display:inline;
+		position:relative;
+		width:200px;
+		height:110px;
+		text-align:right;
+		float:right;
+		border:1px solid blue;
+		border-radius:10px;
+	}
+	.btn_login{
+		position: relative;
+		top:5px;
+		right:15px;
+		
+	}
+	.btn_logout{
+		position: relative;
+		margin:0 auto;
+		text-align:center;
+	}
+	.logout_div{
+		text-align: center;
+		padding-top:10px;
+	}
+	.div_recboard{
+		display:block;
+		position:relative;
+		width:380px;
+		border:1px solid green;
+		border-radius:10px;
+		padding:5px;
+	}
+	.div_hotboard{
+		display:block;
+		position:relative;
+		width:380px;
+		border:1px solid green;
+		border-radius:10px;
+		padding:5px;
+		margin-top:10px;
+	}
+	.table_board{
+		table-layout:fixed;
+		position:relative;
+		width:370px;
+	}
+	th,td{
+		text-overflow:ellipsis;
+		overflow:hidden;
+		white-space: nowrap;
+	}
+	.login_input{
+		width:92%;
+
+	}
+
