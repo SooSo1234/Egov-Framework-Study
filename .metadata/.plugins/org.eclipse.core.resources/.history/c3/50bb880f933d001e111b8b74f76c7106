@@ -1,0 +1,5 @@
+DbType=mysql
+jdbc.driverClassName=com.mysql.cj.jdbc.Driver
+jdbc.url=[Database URL]
+jdbc.username=[Database ID]
+jdbc.password=[Database PW]

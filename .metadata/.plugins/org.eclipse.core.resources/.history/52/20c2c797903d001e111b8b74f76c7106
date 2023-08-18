@@ -1,5 +1,0 @@
-DbType=mysql
-jdbc.driverClassName=com.mysql.cj.jdbc.Driver
-jdbc.url=jdbc:mysql://gcp.connect.psdb.cloud/mydb?sslMode=VERIFY_IDENTITY
-jdbc.username=e6jxk8vrwigsvfy6blg0
-jdbc.password=pscale_pw_XovNyhK11guFjeCweHMTFqT9oScTYsjyNafNztNUH4k
