@@ -39,5 +39,6 @@
 		</tr>
 	</table>
 	<hr/>
+	<br>
 </body>
 </html>

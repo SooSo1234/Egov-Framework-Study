@@ -69,6 +69,7 @@
 	<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 </div>
 
+<%@ include file="../include/bottommenu.jsp" %>
 
 </body>
 </html>

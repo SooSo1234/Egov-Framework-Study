@@ -118,5 +118,6 @@
 	</table>
 </form>
 
+<%@ include file="../include/bottommenu.jsp" %>
 </body>
 </html>

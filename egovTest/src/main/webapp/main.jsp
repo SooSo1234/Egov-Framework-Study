@@ -142,26 +142,7 @@
 </div>
 
 
-<div style="width:600px;position:absolute; bottom:5%;">
-	<hr>
-	<table style="position:relatione; width:100px; margin-right:10px; border:0px;">
-		<tr>
-			<th class="bottom_table">
-				test
-			</th>
-		</tr>
-		<tr>
-			<th class="bottom_table">
-				test
-			</th>
-		</tr>
-		<tr>
-			<th class="bottom_table">
-				test
-			</th>
-		</tr>
-	</table>
-</div>
+<%@ include file="../include/bottommenu.jsp" %>
 </body>
 
 </html>
