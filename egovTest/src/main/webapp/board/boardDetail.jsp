@@ -14,14 +14,20 @@
 <meta charset="UTF-8">
 <title>게시판 등록 화면</title>
 
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-
 </head>
 
 
 <link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
+
+function btn_delete(unq){
+	var w = 400;
+	var h = 150;
+	var url = "passWrite.do?unq="+unq;
+	window.open(url,'passWrite','width='+w+',height='+h);
+}
 
 
 </script>
@@ -29,7 +35,9 @@
 
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<form id="frm">
+<c:set var="USERID" value="<%=USERID%>" />
+
+<form name="frm" id="frm">
 	<table>
 		<caption>게시판 상세</caption>
 		<tr>
@@ -53,8 +61,11 @@
 		<tr>
 			<th colspan="2">
 				<button type="button" onclick="location='boardList.do'">목록</button>
+				<c:if test="${USERID eq boardVO.name }">
 				<button type="button" onclick="location='boardModifyWrite.do?unq=${boardVO.unq}'">수정</button>
-				<button type="button" onclick="location='passWrite.do?unq=${boardVO.unq}'">삭제</button>
+				<button type="button" onclick="btn_delete('${boardVO.unq}')">삭제</button>
+				</c:if>
+
 			</th>
 		</tr>
 	</table>

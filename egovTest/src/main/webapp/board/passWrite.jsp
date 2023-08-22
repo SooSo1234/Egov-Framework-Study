@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>암호입력화면</title>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="/egoveTest2/script/jquery-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
 
 </head>
 <script>
@@ -36,7 +36,8 @@ $(function(){
 			success: function(result){
 				if(result == "1"){
 					alert("삭제완료");
-					location="boardList.do";
+					opener.location.href='boardList.do';
+					self.close();
 				} else if(result == "-1"){
 					alert("암호가 일치하지 않습니다.");
 				} else {
@@ -51,10 +52,15 @@ $(function(){
 });
 	
 </script>
-
+<style>
+	th,td{
+		border:0 solid white;
+	}
+</style>
 <body>
+<br>
 
-	<table>
+	<table style="width:300px; margin-top:10%;">
 		<tr>
 			<th>암호입력</th>
 			<td><input type="password" id="pass"></td>

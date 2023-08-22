@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn"      uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui"     uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,20 +12,15 @@
 <meta charset="UTF-8">
 <title>게시판 등록 화면</title>
 
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 
 </head>
 
 <link type="text/css" rel="stylesheet" href="<c:url value='/include/mainstyles.css'/>"/>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <script>
 
-	$(function(){
-		
-		$("#title").val("제목입력");
-		
-	});
 
 
 	function fn_submit() {
@@ -45,6 +42,13 @@
 		}
 		$("#pass").val($.trim($("#pass").val()) );
 
+		if($.trim($("#name").val())==""){
+			alert("글쓴이를 입력해주세요!");
+			$("#name").focus();
+			return false;
+		}
+		$("#name").val($.trim($("#name").val()) );
+		
 		var formData = $("#frm").serialize();
 		
 		//비동기 전송방식
@@ -95,7 +99,7 @@
 		<caption>게시판 등록</caption>
 		<tr>
 			<th width="20%"><label for="title">제목</label></th>
-			<td width="80%"><input type="text" name="title" id="title" class="input1"></td>
+			<td width="80%"><input type="text" name="title" id="title" class="input1" placeholder="제목입력"></td>
 		</tr>
 		<tr>
 			<th><label for="pass">암호</label></th>
@@ -103,7 +107,7 @@
 		</tr>
 		<tr>
 			<th><label for="name">글쓴이</label></th>
-			<td><input type="text" name="name" id="name" class="input1"></td>
+			<td><input type="text" name="name" id="name" class="input1" value="<%=USERID %>" readonly></td>
 		</tr>
 		<tr>
 			<th><label for="content">내용</label></th>

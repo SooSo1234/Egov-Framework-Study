@@ -62,9 +62,14 @@ public class BoardController {
 	
 
 	@RequestMapping(value="/boardWrite.do")
-	public String boardWrite() {
+	public String boardWrite(HttpSession session) {
 		
-		return "board/boardWrite";
+		String userid = (String) session.getAttribute("SessionUserID");
+		if(userid!=null) {
+			return "board/boardWrite";
+		} else {
+			return "redirect:loginWrite.do";
+		}
 	}
 	
 	@RequestMapping(value="/boardWriteSave.do")
